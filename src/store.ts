@@ -1,5 +1,5 @@
 import { getYjsValue, syncedStore } from "@syncedstore/core";
-import { WebrtcProvider } from "y-webrtc";
+import { WebsocketProvider } from "y-partykit/provider";
 
 export type Todo = {
   title: string;
@@ -7,4 +7,9 @@ export type Todo = {
 };
 
 export const globalStore = syncedStore({ todos: [] as Todo[] });
-new WebrtcProvider("id", getYjsValue(globalStore) as any); // sync via webrtc
+
+// new WebsocketProvider(
+//   "wss://yjs.threepointone.partykit.dev/party",
+//   "lwj",
+//   getYjsValue(globalStore) as any
+// ); // sync via partykit
